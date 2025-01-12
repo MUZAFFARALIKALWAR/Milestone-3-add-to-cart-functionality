@@ -53,5 +53,6 @@ export const products: Product[] = [
     color: ["red", "blue", "black"],
     qty: 1,
     discount: 0,
+    
   },
 ];

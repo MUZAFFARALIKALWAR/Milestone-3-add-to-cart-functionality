@@ -9,6 +9,7 @@ import { useAppSelector } from "../../Store/hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { addtocart } from "../../Store/features/cart";
+import Toastify from "@/components/toastify";
 
 // Adding key prop in star array
 let star = [
@@ -42,6 +43,7 @@ export default function SlugPage({params}:{params:{slug:string}}) {
           color:slug.color[0],
           qty: slug.qty,
           discount: slug.discount,
+          
      })
     
      
@@ -133,8 +135,9 @@ export default function SlugPage({params}:{params:{slug:string}}) {
                <span> {cartitem.qty}</span>
               <button onClick={()=>setcartitem({ ...cartitem,qty: ++cartitem.qty})}> <Plus /></button>
               
-            <Button className="bg-black text-white w-[300px]"
-            onClick={()=>dispatch(addtocart(cartitem))}>Add to Cart</Button>
+            {/* <Button className="bg-black text-white w-[300px]"
+            onClick={()=>dispatch(addtocart(cartitem))}>Add to Cart</Button> */}
+            <Toastify cartitem={cartitem}/>
           </div>
         </div>
       </div>
